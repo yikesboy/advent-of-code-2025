@@ -43,5 +43,22 @@ pub fn part1(input: &str) -> i32 {
 }
 
 pub fn part2(input: &str) -> i32 {
-    0
+    let mut start: i32 = 50;
+    let mut result: i32 = 0;
+
+    for line in input.lines() {
+        if let Some(side) = Side::from_str(line) {
+            if let Ok(value) = line[1..].trim().parse::<i32>() {
+                let step = side.apply(1);
+
+                for _ in 0..value {
+                    start = ((start + step) % 100 + 100) % 100;
+                    if start == 0 {
+                        result += 1;
+                    }
+                }
+            }
+        }
+    }
+    result
 }
