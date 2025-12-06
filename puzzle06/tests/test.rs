@@ -18,6 +18,16 @@ fn test_part1_input() {
 
 #[test]
 fn test_part2_example() {
-    let input = "";
-    assert_eq!(part2(input), 0);
+    let input = "123 328  51 64 
+ 45 64  387 23 
+  6 98  215 314
+*   +   *   +  
+";
+    assert_eq!(part2(input), 3263827);
+}
+
+#[test]
+fn test_part2_input() {
+    let input = include_str!("../src/input.txt");
+    assert_eq!(part2(input), 9608327000261)
 }
